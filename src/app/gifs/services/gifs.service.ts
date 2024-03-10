@@ -158,13 +158,11 @@ export class GifsService {
     this.organizeHistory(tag);
 
     const params = new HttpParams().set('api_key', this.apiKey).set('q',
-      tag).set('limit', '10');
+      tag).set('limit', '30');
 
     this.http.get<SearchResponse>(`${this.url}/search`, { params })
       .subscribe(res => {
         this.gifList = res.data;
-        console.log(this.gifList);
-
       }
       );
 

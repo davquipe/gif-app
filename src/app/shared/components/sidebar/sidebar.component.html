@@ -3,7 +3,8 @@
     <hr class="bg-light">
 
     <div class="list-group list-reset">
-        <button *ngFor="let tag of tags" type="button" class="list-group-item list-group-item-action">
+        <button *ngFor="let tag of tags" (click)="searchTag(tag)" type="button"
+            class="list-group-item list-group-item-action">
             {{ tag | titlecase }}
         </button>
     </div>

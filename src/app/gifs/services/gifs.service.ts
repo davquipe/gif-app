@@ -34,6 +34,11 @@ export class GifsService {
 
     this._tagHistory.unshift(tag);
     this._tagHistory = this._tagHistory.splice(0, 10);
+    this.saveLocalStorage();
+  }
+
+  private saveLocalStorage() {
+    localStorage.setItem('history', JSON.stringify(this._tagHistory));
   }
 
   searchTag(tag: string): void {
@@ -48,13 +53,6 @@ export class GifsService {
         this.gifList = res.data;
       }
       );
-
-    // fetch(`https://api.giphy.com/v1/gifs/search?api_key=${this.apiKey}&q=${tag}&limit=10`)
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     console.log(data);
-    //   });
-    console.log(this._tagHistory);
 
   }
 }
